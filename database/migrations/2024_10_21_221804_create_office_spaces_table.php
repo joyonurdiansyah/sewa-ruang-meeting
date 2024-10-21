@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('office_spaces', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('thumbnail');
+            $table->boolean('is_open');
+            $table->boolean('is_full_booked');
+            $table->unsignedBigInteger('price');
+            $table->unsignedBigInteger('duration');
+            $table->text('about');
+            $table->foreignId('city_id')->constrained()->cascadeOnDelete();
+            $table->string('slug')->unique();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
