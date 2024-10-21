@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('office_space_benefits', function (Blueprint $table) {
+        Schema::create('office_space_photos', function (Blueprint $table) {
             $table->id();
-            $table->String('name');
+            $table->string('photo');
             $table->foreignId('office_space_id')->constrained()->cascadeOnDelete();
             $table->softDeletes();
             $table->timestamps();
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('office_space_benefits');
+        Schema::dropIfExists('office_space_photos');
     }
 };
