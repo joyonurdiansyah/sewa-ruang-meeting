@@ -20,7 +20,7 @@ class City extends Model
 
     public function setNameAttribute($value){
         $this->attributes['name'] = $value;
-        $this->attributes['address'] = Str::slug($value);
+        $this->attributes['slug'] = Str::slug($value);
     }
 
     // satu city dapat memiliki lebih dari satu spaces

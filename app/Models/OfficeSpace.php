@@ -29,7 +29,7 @@ class OfficeSpace extends Model
     // gunakan accessor pada laravel
     public function setNameAttribute($value){
         $this->attributes['name'] = $value;
-        $this->attributes['address'] = Str::slug($value);
+        $this->attributes['slug'] = Str::slug($value);
     }
 
 
