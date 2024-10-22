@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+Use Illuminate\Support\Str;
 
 class OfficeSpace extends Model
 {
@@ -24,6 +25,12 @@ class OfficeSpace extends Model
         'slug',
         'city_id',
     ];
+
+    // gunakan accessor pada laravel
+    public function setNameAttribute($value){
+        $this->attributes['name'] = $value;
+        $this->attributes['address'] = Str::slug($value);
+    }
 
 
     public function photos(): HasMany
